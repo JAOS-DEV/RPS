@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap");
+
+//
+$Scissors-Gradient-from: hsl(39, 89%, 49%);
+$Scissors-Gradient-to: hsl(40, 84%, 53%);
+$Paper-Gradient-from: hsl(230, 89%, 62%);
+$Paper-Gradient-to: hsl(230, 89%, 65%);
+$Lizard-Gradient-from: hsl(261, 73%, 60%);
+$Lizard-Gradient-to: hsl(261, 72%, 63%);
+$Cyan-Gradient-from: hsl(189, 59%, 53%);
+$Cyan-Gradient-to: hsl(189, 58%, 57%);
+
+// Neutral Colors
+$Dark-Text: hsl(229, 25%, 31%);
+$Score-Text-Color: hsl(229, 64%, 46%);
+$Header-Outline: hsl(217, 16%, 45%);
+
+// Background Colors
+$Radial-Gradient-from: hsl(214, 47%, 23%);
+$Radial-Gradient-to: hsl(237, 49%, 15%);
+
+// Fonts
+$Main-Font: "Barlow Semi Condensed", sans-serif;
+
+//===========================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $Main-Font;
+  height: 100vh;
+  background: linear-gradient($Radial-Gradient-from, $Radial-Gradient-to);
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+// ============================
+
+.App {
+  text-align: center;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+// Score Board
+.score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 2rem;
+  padding: 0.5rem 0.8rem;
+  border: 4px solid $Header-Outline;
+  border-radius: 8px;
+
+  .title-img {
+    width: 100px;
+  }
+
+  &-board {
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+
+    h3 {
+      color: $Score-Text-Color;
+    }
+
+    p {
+      color: $Dark-Text;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+  }
+}
+
+// Icon Choice
+.icon-choice {
+  margin-top: 7rem;
+}
+
+// General styles for icons
+.img-icon {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 1000px;
+  padding: 1.8rem;
+  z-index: 10;
+  
+  //Individual styles for icons
+  &-paper{
+    border: solid 1.2rem $Paper-Gradient-from;
+    margin-right: 2.5rem;
+  }
+  &-scissors{
+    border: solid 1.2rem $Scissors-Gradient-from;
+  }
+  &-rock{
+    border: solid 1.2rem red;
+    margin-top: 1.5rem;
+  }
+}
+
+
+// Rules
+.rules-btn {
+  position: absolute;
+  width: 150px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px white;
+  border-radius: 10px;
+  padding: 0.8rem 0;
+  color: white;
+  font-size: 1.3rem;
+}
