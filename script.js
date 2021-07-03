@@ -7,28 +7,47 @@ const scissorsIconBtnEl = document.querySelector(".img-icon-scissors");
 const paperImgEl = document.getElementById("paperImg");
 const rockImgEl = document.getElementById("rockimg");
 const scissorsImgEl = document.getElementById("scissorsImg");
+const pickedImgEl = document.getElementById("pickedImg");
+const housePickedImgEl = document.getElementById("housePickedImg");
+const pickedBtnEl = document.getElementById("pickedBtn");
+const houseBtnEl = document.getElementById("houseBtn");
 const placeholderBtnEl = document.getElementById("placeholderBtn");
 const iconContainer = document.querySelector(".icon-choice");
 const pickedTextEl = document.querySelectorAll(".pickedText");
 const winnerTextEL = document.querySelector(".winner-text");
 const playAgainEL = document.querySelector(".play-again");
+const scoreNumberEl = document.querySelector(".score-number");
+const appEl = document.querySelector(".App");
 
 // ================================================
 let score = 0;
+scoreNumberEl.textContent = score;
 // ================================================
 const init = () => {
-  score = 0;
-  pickedTextEl.classList.add("hidden");
-  // Change paper to selcted icon
-  paperIconBtnEl.classList.add(`img-icon-paper`);
-  paperIconBtnEl.classList.remove(`img-icon-${id}`);
+  // score = score;
+  // Set/Hide classes of picked and house buttons
+  pickedBtnEl.className = "img-icon hidden";
+  houseBtnEl.className = "img-icon hidden";
+
+  // Show icon choice
+  paperIconBtnEl.classList.remove("hidden");
+  scissorsIconBtnEl.classList.remove("hidden");
+  rockIconBtnEl.classList.remove("hidden");
+
+  // Hide play again buttons and text
+  playAgainEL.classList.add("hidden");
+  winnerTextEL.classList.add("hidden");
+  pickedTextEl.forEach((el) => el.classList.add("hidden"));
+  // Default icon layout
+  iconContainer.classList.remove("icon-choice-flex");
+  // SHow background triangle
+  appEl.style.background = "url(/images/bg-triangle.svg) no-repeat center 100%";
 };
 
 // Random icon
 const randomIcon = () => {
   const icons = ["rock", "paper", "scissors"];
   const num = Math.trunc(Math.random() * 3);
-
   return icons[num];
 };
 
@@ -53,35 +72,40 @@ const displayChosenIcon = (buttonEl, imageEl) => {
   const { src } = imageEl;
   const computerIcon = randomIcon();
 
-  // displayChosenIcons
+  // remove background triangle
+  appEl.style.background = "none";
   // Show picked text
   pickedTextEl.forEach((el) => el.classList.remove("hidden"));
-  // Hide rock Icon
-  rockIconBtnEl.classList.add("hidden");
-  // Change paper to selcted icon
-  paperIconBtnEl.classList.remove(`img-icon-paper`);
-  paperIconBtnEl.classList.add(`img-icon-${id}`);
-  paperImg.src = src;
 
-  // Change scissors to computers icon after delay
-  placeholderBtnEl.classList.remove("hidden");
+  // hide selection
+  rockIconBtnEl.classList.add("hidden");
+  paperIconBtnEl.classList.add("hidden");
   scissorsIconBtnEl.classList.add("hidden");
+
+  // Set picked icon and display
+  pickedImgEl.src = src;
+  pickedBtnEl.classList.add(`img-icon-${id}`);
+  pickedBtnEl.classList.remove("hidden");
+  placeholderBtnEl.classList.remove("hidden");
+
+  // Set timeout for house choice reveal
   setTimeout(() => {
     showHouseIcon(id, computerIcon);
   }, 3000);
 
   // Css to fix icon alignment
   iconContainer.classList.add("icon-choice-flex");
-  paperIconBtnEl.style.margin = "0rem";
-  scissorsIconBtnEl.style.margin = "0rem";
 };
 
 const showHouseIcon = (id, computerIcon) => {
   placeholderBtnEl.classList.add("hidden");
-  scissorsIconBtnEl.classList.remove("hidden");
-  scissorsIconBtnEl.classList.remove(`img-icon-scissors`);
-  scissorsIconBtnEl.classList.add(`img-icon-${computerIcon}`);
-  scissorsImg.src = `./images/icon-${computerIcon}.svg`;
+  houseBtnEl.classList.add(`img-icon-${computerIcon}`);
+  houseBtnEl.classList.remove("hidden");
+  housePickedImgEl.src = `./images/icon-${computerIcon}.svg`;
+
+  // Display radial effect
+  pickedBtnEl.classList.add("img-icon-radial-effect");
+
   // Check winner
   checkWinner(id, computerIcon);
 };
@@ -96,6 +120,8 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "DRAW";
     // Update scoreboard
     console.log(score);
+    scoreNumberEl.textContent = score;
+
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
@@ -108,6 +134,8 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "WINNER!";
     // Update scoreboard
     score++;
+    scoreNumberEl.textContent = score;
+
     console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
@@ -120,6 +148,8 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "LOSER!";
     // Update scoreboard
     score--;
+    scoreNumberEl.textContent = score;
+
     console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
@@ -134,6 +164,8 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "WINNER!";
     // Update scoreboard
     score++;
+    scoreNumberEl.textContent = score;
+
     console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
@@ -147,6 +179,8 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "LOSER!";
     // Update scoreboard
     score--;
+    scoreNumberEl.textContent = score;
+
     console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
@@ -161,6 +195,8 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "WINNER!";
     // Update scoreboard
     score++;
+    scoreNumberEl.textContent = score;
+
     console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
@@ -174,18 +210,17 @@ const checkWinner = (id, computerIcon) => {
     winnerTextEL.textContent = "LOSER!";
     // Update scoreboard
     score--;
+    scoreNumberEl.textContent = score;
+
     console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
-  console.log(`score end ${score}`);
-  paperIconBtnEl.classList.add("img-icon-radial-effect");
 };
 
 // ======================================
 // Play again button
-const playAgain = () => {};
 
 playAgainEL.addEventListener("click", (e) => {
-  playAgain();
+  init();
 });

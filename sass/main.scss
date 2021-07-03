@@ -30,6 +30,7 @@ $Main-Font: "Barlow Semi Condensed", sans-serif;
 }
 
 html {
+  position: relative;
   font-family: $Main-Font;
   height: 100vh;
   background: linear-gradient($Radial-Gradient-from, $Radial-Gradient-to);
@@ -47,6 +48,7 @@ a {
 
 .App {
   text-align: center;
+  background: url(/images/bg-triangle.svg) no-repeat center 100%;
 }
 
 .App-link {
@@ -141,9 +143,11 @@ a {
   padding-top: 1.5rem;
 }
 
-.youPickedText {
+#pickedBtn {
+  margin: 0rem;
 }
-.housePickedText {
+#houseBtn {
+  margin: 0rem;
 }
 
 // Play again button

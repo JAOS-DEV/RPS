@@ -13,22 +13,31 @@
         <img src="./images/logo.svg" alt="Rock Paper Scissors" class="title-img" />
         <div class="score-board">
           <h3>score</h3>
-          <p>12</p>
+          <p class="score-number">12</p>
         </div>
       </section>
 
       <div class="icon-choice">
+        <!-- Chosen buttons -->
+        <button id="pickedBtn" class="img-icon hidden">
+          <img id="pickedImg" class="img" src="./images/icon-paper.svg" alt="Icon" />
+        </button>
+        <button id="houseBtn" class="img-icon hidden"><img id="housePickedImg" class="img" src="./images/icon-scissors.svg" alt="Icon" /></button>
+
+        <!-- Placeholder icon -->
+        <button id="placeholderBtn" class="img-icon img-icon-placeHolder hidden"></button>
+
+        <!-- Picked text -->
+        <h2 id="youPickedText" class="pickedText youPickedText hidden">YOU PICKED</h2>
+
+        <h2 id="housePickedText" class="pickedText housePickedText hidden">THE HOUSE PICKED</h2>
+
+        <!-- Choice of icons -->
         <button id="paper" class="img-icon img-icon-paper">
           <img id="paperImg" class="img" src="./images/icon-paper.svg" alt="Icon" />
         </button>
 
-        <button id="placeholderBtn" class="img-icon img-icon-placeHolder hidden"></button>
-
         <button id="scissors" class="img-icon img-icon-scissors"><img id="scissorsImg" class="img" src="./images/icon-scissors.svg" alt="Icon" /></button>
-
-        <h2 id="youPickedText" class="pickedText youPickedText hidden">YOU PICKED</h2>
-
-        <h2 id="housePickedText" class="pickedText housePickedText hidden">THE HOUSE PICKED</h2>
 
         <button id="rock" class="img-icon img-icon-rock">
           <img id="rockImg" class="img" src="./images/icon-rock.svg" alt="Icon" />
@@ -39,7 +48,7 @@
 
       <a class="play-again hidden">Play Again</a>
 
-      <a class="rules-btn" href="#"> Rules </a>
+      <a class="rules-btn"> Rules </a>
     </div>
     <script src="./script.js"></script>
   </body>

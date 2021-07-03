@@ -5,6 +5,7 @@
   box-sizing: border-box; }
 
 html {
+  position: relative;
   font-family: "Barlow Semi Condensed", sans-serif;
   height: 100vh;
   background: linear-gradient(#1f3756, #141539); }
@@ -16,7 +17,8 @@ a {
   display: none; }
 
 .App {
-  text-align: center; }
+  text-align: center;
+  background: url(/images/bg-triangle.svg) no-repeat center 100%; }
 
 .App-link {
   color: #61dafb; }
@@ -82,6 +84,12 @@ a {
   font-size: 1rem;
   letter-spacing: 3px;
   padding-top: 1.5rem; }
+
+#pickedBtn {
+  margin: 0rem; }
+
+#houseBtn {
+  margin: 0rem; }
 
 .play-again {
   position: absolute;
