@@ -43,14 +43,11 @@ a {
   display: none;
 }
 
-
-
 // ============================
 
 .App {
   text-align: center;
 }
-
 
 .App-link {
   color: #61dafb;
@@ -89,7 +86,16 @@ a {
 
 // Icon Choice
 .icon-choice {
-  margin-top: 7rem;
+  position: relative;
+  margin-top: 6rem;
+
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5rem;
+  }
 }
 
 // General styles for icons
@@ -100,21 +106,77 @@ a {
   border-radius: 1000px;
   padding: 1.8rem;
   z-index: 10;
-  
+
   //Individual styles for icons
-  &-paper{
+  &-paper {
     border: solid 1.2rem $Paper-Gradient-from;
     margin-right: 2.5rem;
   }
-  &-scissors{
+  &-scissors {
     border: solid 1.2rem $Scissors-Gradient-from;
   }
-  &-rock{
+  &-rock {
     border: solid 1.2rem red;
     margin-top: 1.5rem;
   }
+
+  &-placeHolder {
+    width: 130px;
+    height: 130px;
+    border: solid 0.1rem hsl(214, 47%, 16%);
+    background-color: hsl(214, 47%, 16%);
+  }
+
+  &-radial-effect {
+    box-shadow: 0px 0px 0px 20px hsl(214, 47%, 23%), 0px 0px 0px 45px hsla(214, 47%, 23%, 0.507), 0px 0px 0px 75px hsla(214, 47%, 23%, 0.219);
+  }
 }
 
+.pickedText {
+  z-index: 10;
+  width: 50%;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  padding-top: 1.5rem;
+}
+
+.youPickedText {
+}
+.housePickedText {
+}
+
+// Play again button
+.play-again {
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: $Dark-Text;
+  padding: 1rem 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+}
+// Winner text
+.winner-text {
+  position: absolute;
+  bottom: 220px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
 // Rules
 .rules-btn {

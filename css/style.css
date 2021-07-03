@@ -43,7 +43,14 @@ a {
       font-weight: 700; }
 
 .icon-choice {
-  margin-top: 7rem; }
+  position: relative;
+  margin-top: 6rem; }
+  .icon-choice-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5rem; }
 
 .img-icon {
   width: 150px;
@@ -60,6 +67,50 @@ a {
   .img-icon-rock {
     border: solid 1.2rem red;
     margin-top: 1.5rem; }
+  .img-icon-placeHolder {
+    width: 130px;
+    height: 130px;
+    border: solid 0.1rem #16263c;
+    background-color: #16263c; }
+  .img-icon-radial-effect {
+    box-shadow: 0px 0px 0px 20px #1f3756, 0px 0px 0px 45px rgba(31, 55, 86, 0.507), 0px 0px 0px 75px rgba(31, 55, 86, 0.219); }
+
+.pickedText {
+  z-index: 10;
+  width: 50%;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  padding-top: 1.5rem; }
+
+.play-again {
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #3b4363;
+  padding: 1rem 0.5rem;
+  background-color: white;
+  border-radius: 10px; }
+
+.winner-text {
+  position: absolute;
+  bottom: 220px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px; }
 
 .rules-btn {
   position: absolute;
