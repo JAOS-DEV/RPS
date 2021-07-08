@@ -18,6 +18,10 @@ const winnerTextEL = document.querySelector(".winner-text");
 const playAgainEL = document.querySelector(".play-again");
 const scoreNumberEl = document.querySelector(".score-number");
 const appEl = document.querySelector(".App");
+// Modal
+const rulesBtn = document.querySelector(".rules-btn");
+const modalEl = document.querySelector(".modal");
+const closeModalBtn = document.querySelector(".modal-close span");
 
 // ================================================
 let score = 0;
@@ -41,7 +45,7 @@ const init = () => {
   // Default icon layout
   iconContainer.classList.remove("icon-choice-flex");
   // SHow background triangle
-  appEl.style.background = "url(/images/bg-triangle.svg) no-repeat center 100%";
+  appEl.style.backgroundImage = "url(/images/bg-triangle.svg)";
 };
 
 // Random icon
@@ -73,7 +77,7 @@ const displayChosenIcon = (buttonEl, imageEl) => {
   const computerIcon = randomIcon();
 
   // remove background triangle
-  appEl.style.background = "none";
+  appEl.style.backgroundImage = "none";
   // Show picked text
   pickedTextEl.forEach((el) => el.classList.remove("hidden"));
 
@@ -92,9 +96,6 @@ const displayChosenIcon = (buttonEl, imageEl) => {
   setTimeout(() => {
     showHouseIcon(id, computerIcon);
   }, 3000);
-
-  // Css to fix icon alignment
-  iconContainer.classList.add("icon-choice-flex");
 };
 
 const showHouseIcon = (id, computerIcon) => {
@@ -130,8 +131,8 @@ const checkWinner = (id, computerIcon) => {
     console.log("winner");
     // Show play again button
     playAgainEL.classList.remove("hidden");
-    // Change winner text to "DRAW"
-    winnerTextEL.textContent = "WINNER!";
+    // Change winner text to "YOU WIN"
+    winnerTextEL.textContent = "YOU WIN";
     // Update scoreboard
     score++;
     scoreNumberEl.textContent = score;
@@ -144,8 +145,8 @@ const checkWinner = (id, computerIcon) => {
     console.log("loser");
     // Show play again button
     playAgainEL.classList.remove("hidden");
-    // Change winner text to "DRAW"
-    winnerTextEL.textContent = "LOSER!";
+    // Change winner text to "YOU LOSE"
+    winnerTextEL.textContent = "YOU LOSE";
     // Update scoreboard
     score--;
     scoreNumberEl.textContent = score;
@@ -160,8 +161,8 @@ const checkWinner = (id, computerIcon) => {
     console.log("winner");
     // Show play again button
     playAgainEL.classList.remove("hidden");
-    // Change winner text to "DRAW"
-    winnerTextEL.textContent = "WINNER!";
+    // Change winner text to "YOU WIN"
+    winnerTextEL.textContent = "YOU WIN";
     // Update scoreboard
     score++;
     scoreNumberEl.textContent = score;
@@ -175,8 +176,8 @@ const checkWinner = (id, computerIcon) => {
     console.log("loser");
     // Show play again button
     playAgainEL.classList.remove("hidden");
-    // Change winner text to "DRAW"
-    winnerTextEL.textContent = "LOSER!";
+    // Change winner text to "YOU LOSE"
+    winnerTextEL.textContent = "YOU LOSE";
     // Update scoreboard
     score--;
     scoreNumberEl.textContent = score;
@@ -191,8 +192,8 @@ const checkWinner = (id, computerIcon) => {
     console.log("winner");
     // Show play again button
     playAgainEL.classList.remove("hidden");
-    // Change winner text to "DRAW"
-    winnerTextEL.textContent = "WINNER!";
+    // Change winner text to "YOU WIN"
+    winnerTextEL.textContent = "YOU WIN";
     // Update scoreboard
     score++;
     scoreNumberEl.textContent = score;
@@ -206,8 +207,8 @@ const checkWinner = (id, computerIcon) => {
     console.log("loser");
     // Show play again button
     playAgainEL.classList.remove("hidden");
-    // Change winner text to "DRAW"
-    winnerTextEL.textContent = "LOSER!";
+    // Change winner text to "YOU LOSE"
+    winnerTextEL.textContent = "YOU LOSE";
     // Update scoreboard
     score--;
     scoreNumberEl.textContent = score;
@@ -224,3 +225,13 @@ const checkWinner = (id, computerIcon) => {
 playAgainEL.addEventListener("click", (e) => {
   init();
 });
+
+// ======================================
+// Toggle modal
+const toggleModal = () => {
+  modalEl.classList.toggle("modal-hidden");
+};
+// Rules btn
+rulesBtn.addEventListener("click", toggleModal);
+// Close modal btn
+closeModalBtn.addEventListener("click", toggleModal);

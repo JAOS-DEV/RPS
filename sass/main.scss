@@ -34,6 +34,7 @@ html {
   font-family: $Main-Font;
   height: 100vh;
   background: linear-gradient($Radial-Gradient-from, $Radial-Gradient-to);
+  height: 100vh;
 }
 
 a {
@@ -44,11 +45,19 @@ a {
   display: none;
 }
 
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
 // ============================
 
 .App {
   text-align: center;
-  background: url(/images/bg-triangle.svg) no-repeat center 100%;
+  background-image: url(/images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center 220px;
+  height: 100%;
 }
 
 .App-link {
@@ -90,14 +99,10 @@ a {
 .icon-choice {
   position: relative;
   margin-top: 6rem;
-
-  &-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 5rem;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 // General styles for icons
@@ -112,14 +117,16 @@ a {
   //Individual styles for icons
   &-paper {
     border: solid 1.2rem $Paper-Gradient-from;
-    margin-right: 2.5rem;
+    transform: translate(-20px, -30px);
   }
   &-scissors {
     border: solid 1.2rem $Scissors-Gradient-from;
+    transform: translate(20px, -30px);
   }
   &-rock {
     border: solid 1.2rem red;
     margin-top: 1.5rem;
+    transform: translate(0px, -30px);
   }
 
   &-placeHolder {
@@ -127,33 +134,44 @@ a {
     height: 130px;
     border: solid 0.1rem hsl(214, 47%, 16%);
     background-color: hsl(214, 47%, 16%);
+    transform: translate(20px, -30px);
   }
 
   &-radial-effect {
     box-shadow: 0px 0px 0px 20px hsl(214, 47%, 23%), 0px 0px 0px 45px hsla(214, 47%, 23%, 0.507), 0px 0px 0px 75px hsla(214, 47%, 23%, 0.219);
+    z-index: 0;
   }
 }
 
 .pickedText {
-  z-index: 10;
-  width: 50%;
+  z-index: 20;
   color: white;
   font-size: 1rem;
   letter-spacing: 3px;
-  padding-top: 1.5rem;
+  width: max-content;
+}
+
+.youPickedText {
+  transform: translate(-70px, -10px);
+}
+
+.housePickedText {
+  transform: translate(90px, -30px);
 }
 
 #pickedBtn {
   margin: 0rem;
+  transform: translate(-20px, -30px);
 }
 #houseBtn {
   margin: 0rem;
+  transform: translate(20px, -30px);
 }
 
 // Play again button
 .play-again {
   position: absolute;
-  bottom: 150px;
+  bottom: 100px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -171,7 +189,7 @@ a {
 // Winner text
 .winner-text {
   position: absolute;
-  bottom: 220px;
+  bottom: 180px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -186,7 +204,7 @@ a {
 .rules-btn {
   position: absolute;
   width: 150px;
-  bottom: 50px;
+  bottom: 20px;
   left: 0;
   right: 0;
   text-align: center;
@@ -194,9 +212,207 @@ a {
   letter-spacing: 4px;
   margin-left: auto;
   margin-right: auto;
-  border: solid 2px white;
+  border: solid 2px rgb(255, 255, 255);
   border-radius: 10px;
   padding: 0.8rem 0;
   color: white;
   font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+// modal
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-content {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+
+    h1 {
+      padding: 4rem 0rem;
+      color: $Main-Font;
+    }
+  }
+
+  &-img {
+    margin-top: 3rem;
+  }
+
+  &-close {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $Main-Font;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+// ===========================================
+// Media Queries for Desktop
+
+@media only screen and (min-width: 450px) {
+  // Score
+  .score {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rules-btn {
+    margin-right: 5%;
+  }
+
+  .img-icon-placeHolder {
+    transform: translate(40px, -30px);
+  }
+
+  .youPickedText {
+    transform: translate(-90px, -10px);
+  }
+
+  .housePickedText {
+    transform: translate(115px, -30px);
+  }
+
+  #pickedBtn {
+    margin: 0rem;
+    transform: translate(-40px, -30px);
+  }
+
+  #houseBtn {
+    margin: 0rem;
+    transform: translate(40px, -30px);
+  }
+}
+
+// ================
+@media only screen and (min-width: 600px) {
+  .App {
+    background-position: center 290px;
+  }
+
+  .icon-choice {
+    margin-top: 5rem;
+  }
+
+  .img-icon {
+    width: 180px;
+    height: 180px;
+
+    &-placeHolder {
+      transform: translate(95px, -30px);
+    }
+  }
+
+  .img {
+    width: 70%;
+  }
+
+  // Score
+  .score {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rules-btn {
+    margin-right: 5%;
+  }
+
+  #pickedBtn {
+    margin: 0rem;
+    transform: translate(-95px, -30px);
+  }
+
+  #houseBtn {
+    margin: 0rem;
+    transform: translate(95px, -30px);
+  }
+
+  .youPickedText {
+    transform: translate(-155px, -10px);
+  }
+
+  .housePickedText {
+    transform: translate(185px, -30px);
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .App {
+    background-position: center 290px;
+    // background-size: 350px;
+  }
+
+  .icon-choice {
+    margin-top: 10rem;
+  }
+
+  .img-icon {
+    width: 180px;
+    height: 180px;
+
+    &-placeHolder {
+      margin: 5rem 0rem 0rem 0rem;
+      transform: translate(200px, -30px);
+    }
+  }
+
+  #pickedBtn {
+    margin: 5rem 0rem 0rem 0rem;
+    transform: translate(-220px, -30px);
+  }
+
+  #houseBtn {
+    margin: 5rem 0rem 0rem 0rem;
+    transform: translate(200px, -30px);
+  }
+
+  .youPickedText {
+    transform: translate(-280px, -275px);
+  }
+
+  .housePickedText {
+    transform: translate(285px, -290px);
+  }
+
+  .winner-text {
+    bottom: 280px;
+  }
+
+  .play-again {
+    bottom: 210px;
+    max-width: 280px;
+  }
+
+  // modal
+  .modal {
+    &-content {
+      width: 30%;
+    }
+  }
 }
