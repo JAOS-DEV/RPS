@@ -42,7 +42,7 @@ const init = () => {
   // Default icon layout
   iconContainer.classList.remove("icon-choice-flex");
   // SHow background triangle
-  appEl.style.backgroundImage = "url(../images/bg-triangle.svg)";
+  appEl.style.backgroundImage = "url(./images/bg-triangle.svg)";
 };
 
 // Random icon
