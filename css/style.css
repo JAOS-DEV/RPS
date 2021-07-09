@@ -216,7 +216,7 @@ a {
 
 @media only screen and (min-width: 600px) {
   .App {
-    background-position: center 290px; }
+    background-position: center 230px; }
   .icon-choice {
     margin-top: 5rem; }
   .img-icon {
@@ -245,7 +245,7 @@ a {
 
 @media only screen and (min-width: 900px) {
   .App {
-    background-position: center 290px; }
+    background-position: center 300px; }
   .icon-choice {
     margin-top: 10rem; }
   .img-icon {
@@ -270,4 +270,4 @@ a {
     bottom: 210px;
     max-width: 280px; }
   .modal-content {
-    width: 30%; } }
+    width: 40%; } }

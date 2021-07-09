@@ -4,9 +4,6 @@ const iconsEl = document.querySelectorAll(".img");
 const paperIconBtnEl = document.querySelector(".img-icon-paper");
 const rockIconBtnEl = document.querySelector(".img-icon-rock");
 const scissorsIconBtnEl = document.querySelector(".img-icon-scissors");
-const paperImgEl = document.getElementById("paperImg");
-const rockImgEl = document.getElementById("rockimg");
-const scissorsImgEl = document.getElementById("scissorsImg");
 const pickedImgEl = document.getElementById("pickedImg");
 const housePickedImgEl = document.getElementById("housePickedImg");
 const pickedBtnEl = document.getElementById("pickedBtn");
@@ -59,7 +56,6 @@ const randomIcon = () => {
 // Add event listeners to icons
 iconsEl.forEach((iconEl) => {
   iconEl.addEventListener("click", (e) => {
-    console.log("click Event");
     const buttonEl = e.target.closest(".img-icon");
     const imageEl = e.target.closest(".img");
 
@@ -71,7 +67,6 @@ iconsEl.forEach((iconEl) => {
 // ===================================
 // Display chosen icons
 const displayChosenIcon = (buttonEl, imageEl) => {
-  console.log("Display chosen Icon + random icon");
   const { id } = buttonEl;
   const { src } = imageEl;
   const computerIcon = randomIcon();
@@ -114,13 +109,11 @@ const showHouseIcon = (id, computerIcon) => {
 // Check Winner
 const checkWinner = (id, computerIcon) => {
   if (id === computerIcon) {
-    console.log(`draw`);
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "DRAW"
     winnerTextEL.textContent = "DRAW";
     // Update scoreboard
-    console.log(score);
     scoreNumberEl.textContent = score;
 
     // Display winner text
@@ -128,7 +121,6 @@ const checkWinner = (id, computerIcon) => {
   }
   // Paper Logic
   if (id === "paper" && computerIcon === "rock") {
-    console.log("winner");
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "YOU WIN"
@@ -137,12 +129,10 @@ const checkWinner = (id, computerIcon) => {
     score++;
     scoreNumberEl.textContent = score;
 
-    console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
   if (id === "paper" && computerIcon === "scissors") {
-    console.log("loser");
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "YOU LOSE"
@@ -151,14 +141,12 @@ const checkWinner = (id, computerIcon) => {
     score--;
     scoreNumberEl.textContent = score;
 
-    console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
 
   // Rock Logic
   if (id === "rock" && computerIcon === "scissors") {
-    console.log("winner");
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "YOU WIN"
@@ -166,14 +154,11 @@ const checkWinner = (id, computerIcon) => {
     // Update scoreboard
     score++;
     scoreNumberEl.textContent = score;
-
-    console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
 
   if (id === "rock" && computerIcon === "paper") {
-    console.log("loser");
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "YOU LOSE"
@@ -181,15 +166,12 @@ const checkWinner = (id, computerIcon) => {
     // Update scoreboard
     score--;
     scoreNumberEl.textContent = score;
-
-    console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
 
   // Scissors Logic
   if (id === "scissors" && computerIcon === "paper") {
-    console.log("winner");
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "YOU WIN"
@@ -197,14 +179,11 @@ const checkWinner = (id, computerIcon) => {
     // Update scoreboard
     score++;
     scoreNumberEl.textContent = score;
-
-    console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
 
   if (id === "scissors" && computerIcon === "rock") {
-    console.log("loser");
     // Show play again button
     playAgainEL.classList.remove("hidden");
     // Change winner text to "YOU LOSE"
@@ -213,20 +192,16 @@ const checkWinner = (id, computerIcon) => {
     score--;
     scoreNumberEl.textContent = score;
 
-    console.log(score);
     // Display winner text
     winnerTextEL.classList.remove("hidden");
   }
 };
 
-// ======================================
 // Play again button
-
 playAgainEL.addEventListener("click", (e) => {
   init();
 });
 
-// ======================================
 // Toggle modal
 const toggleModal = () => {
   modalEl.classList.toggle("modal-hidden");

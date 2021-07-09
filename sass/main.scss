@@ -58,6 +58,7 @@ a {
   background-repeat: no-repeat;
   background-position: center 220px;
   height: 100%;
+  display: block;
 }
 
 .App-link {
@@ -119,6 +120,7 @@ a {
     border: solid 1.2rem $Paper-Gradient-from;
     transform: translate(-20px, -30px);
   }
+
   &-scissors {
     border: solid 1.2rem $Scissors-Gradient-from;
     transform: translate(20px, -30px);
@@ -271,9 +273,7 @@ a {
   }
 }
 
-// ===========================================
 // Media Queries for Desktop
-
 @media only screen and (min-width: 450px) {
   // Score
   .score {
@@ -309,10 +309,9 @@ a {
   }
 }
 
-// ================
 @media only screen and (min-width: 600px) {
   .App {
-    background-position: center 290px;
+    background-position: center 230px;
   }
 
   .icon-choice {
@@ -364,7 +363,7 @@ a {
 
 @media only screen and (min-width: 900px) {
   .App {
-    background-position: center 290px;
+    background-position: center 300px;
     // background-size: 350px;
   }
 
@@ -412,7 +411,7 @@ a {
   // modal
   .modal {
     &-content {
-      width: 30%;
+      width: 40%;
     }
   }
 }
